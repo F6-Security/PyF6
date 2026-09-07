@@ -403,7 +403,7 @@ class Poller(object):
         """
 
         url = urljoin(self._api_url, endpoint)
-        params = urlencode({k: v for k, v in (params or {}).items() if v})
+        params = urlencode({k: v for k, v in (params or {}).items() if v or v == 0})
         try:
             if method in ["GET", "POST"]:
                 response = self._session.get(
@@ -1262,6 +1262,7 @@ class TISearchFeedGenerator(FeedGenerator):
         return {
             **super()._get_params(),
             "resultId": self.result_id,
+            "apply_hunting_rules": self.generator_info.apply_hunting_rules,
             **self.generator_info.params,
         }
 

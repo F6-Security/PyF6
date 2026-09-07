@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='pyf6',
-    version="0.7.13",
+    version="0.7.14",
     description='Package provides poller for TI, DRP, ASM products',
     python_requires='>=3.6.0',
     install_requires=['requests>=2.25.1', 'dataclasses', 'urllib3', 'pyaml'],
